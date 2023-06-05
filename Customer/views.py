@@ -38,7 +38,18 @@ class Order(View):
         for item in items:
             menu_item = MenuItem.objects.get(pk__contains=int(item))
             item_data = {
+                'id': menu_item.pk,
+                'name': menu_item.name,
+                'price': menu_item.price,
 
             }
+            order_items['items'].append(item_data)
+
+            # sum total price
+            price = 0
+            item_ids = []
+
+            for item in order_items['items']:
+                price += item['price']
 
     
