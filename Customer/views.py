@@ -51,5 +51,15 @@ class Order(View):
 
             for item in order_items['items']:
                 price += item['price']
+                item_ids.append(item['id'])
+
+            order = OrderModel.objects.create(price=price)
+            order.items.add(*item_ids)   
+
+            context = {
+                'items': order_items['items'],
+                'price': price
+            } 
+            return render(request, 'Customer/order_confirmation.html', context)
 
     
