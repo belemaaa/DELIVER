@@ -9,7 +9,7 @@ class Index(View):
         return render(request, 'Customer/index.html')
 
 
-class Ooder(View):
+class Order(View):
     def get(self, request, *args, **kwargs):
         # get every item from each category
         appetizers = MenuItem.objects.filter(category__name__contains='Appetizer')
@@ -27,4 +27,18 @@ class Ooder(View):
 
         #render the template
         return render(request, 'Customer/order.html', context)
+    
+    def post(self, request, *args, **kwargs):
+        order_items = {
+            'items': []
+        }
+
+        items = request.POST.getlist('items[]')
+
+        for item in items:
+            menu_item = MenuItem.objects.get(pk__contains=int(item))
+            item_data = {
+
+            }
+
     
