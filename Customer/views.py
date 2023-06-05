@@ -7,7 +7,3 @@ class Index(View):
     def get(self, request, *args, **kwargs):
         return render(request, 'Customer/index.html')
 
-
-class About(View):
-    def get(self, request, *args, **kwargs):
-        return render(request, 'Customer/about.html')
