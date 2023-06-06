@@ -7,98 +7,97 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
 </head>
-<body class="bg-white"> 
-    <div class="container mx-auto my-5 px-4 py-8">
-        <h1 class="text-3xl  bg-gray-100 text-center font-bold mb-4">Order Page</h1>
+<body> 
+    <div class="container mx-auto mb-5">
         <div class="flex justify-center mt-1">
-            <div class="w-full p-4 bg-white rounded-lg shadow-md">
+            <div class="w-full p-4">
                 <form method="POST">
                     {% csrf_token %}
-                    <div class="mt-5">
+                    <div class="pt-5">
                         {% for app in appetizers %}
-                        <div class="flex flex-row items-center">
+                        <div class="flex flex-row">
                             <div class="w-1/6">
                                 <img class="rounded" src="{{ app.image.url }}" width="150" height="100"/>
                             </div>
                             <div class="w-5/6">
-                                <div class="flex flex-row items-center">
-                                    <div class="flex items-center">
-                                        <input type="checkbox" name="items[]" class="form-checkbox h-5 w-5 text-gray-600" value="{{ app.pk }}">
-                                        <label class="ml-2 text-gray-700">{{ app.name }}</label>
+                                <div class="flex flex-row">
+                                    <div class="form-check">
+                                        <input type="checkbox" name="items[]" class="form-check-input" value="{{ app.pk }}">
+                                        <label class="form-check-label">{{ app.name }}</label>
                                     </div>
-                                    <p class="font-bold pl-5 text-gray-800">{{ app.price }}</p>
+                                    <p class="font-bold pl-5">{{ app.price }}</p>
                                 </div>
-                                <p class="text-gray-600">{{ app.description }}</p>
+                                <p>{{ app.description }}</p>
                             </div>
                         </div>
                         <hr class="my-4" />
                         {% endfor %}
                     </div>
 
-                    <div class="mt-5">
+                    <div class="pt-5">
                         {% for entre in entres %}
-                        <div class="flex flex-row items-center">
+                        <div class="flex flex-row mt-4">
                             <div class="w-1/6">
                                 <img class="rounded" src="{{ entre.image.url }}" width="150" height="100"/>
                             </div>
                             <div class="w-5/6">
-                                <div class="flex flex-row items-center">
-                                    <div class="flex items-center">
-                                        <input type="checkbox" name="items[]" class="form-checkbox h-5 w-5 text-gray-600" value="{{ entre.pk }}">
-                                        <label class="ml-2 text-gray-700">{{ entre.name }}</label>
+                                <div class="flex flex-row">
+                                    <div class="form-check">
+                                        <input type="checkbox" name="items[]" class="form-check-input" value="{{ entre.pk }}">
+                                        <label class="form-check-label">{{ entre.name }}</label>
                                     </div>
-                                    <p class="font-bold pl-5 text-gray-800">{{ entre.price }}</p>
+                                    <p class="font-bold pl-5">{{ entre.price }}</p>
                                 </div>
-                                <p class="text-gray-600">{{ entre.description }}</p>
+                                <p>{{ entre.description }}</p>
                             </div>
                         </div>
                         <hr class="my-4" />
                         {% endfor %}
                     </div>
 
-                    <div class="mt-5">
+                    <div class="pt-5">
                         {% for dessert in desserts %}
-                        <div class="flex flex-row items-center">
+                        <div class="flex flex-row mt-4">
                             <div class="w-1/6">
                                 <img class="rounded" src="{{ dessert.image.url }}" width="150" height="100"/>
                             </div>
                             <div class="w-5/6">
-                                <div class="flex flex-row items-center">
-                                    <div class="flex items-center">
-                                        <input type="checkbox" name="items[]" class="form-checkbox h-5 w-5 text-gray-600" value="{{ dessert.pk }}">
-                                        <label class="ml-2 text-gray-700">{{ dessert.name }}</label>
+                                <div class="flex flex-row">
+                                    <div class="form-check">
+                                        <input type="checkbox" name="items[]" class="form-check-input" value="{{ dessert.pk }}">
+                                        <label class="form-check-label">{{ dessert.name }}</label>
                                     </div>
-                                    <p class="font-bold pl-5 text-gray-800">{{ dessert.price }}</p>
+                                    <p class="font-bold pl-5">{{ dessert.price }}</p>
                                 </div>
-                                <p class="text-gray-600">{{ dessert.description }}</p>
+                                <p>{{ dessert.description }}</p>
                             </div>
                         </div>
                         <hr class="my-4" />
                         {% endfor %}
                     </div>
 
-                    <div class="mt-5">
+                    <div class="pt-5">
                         {% for drink in drinks %}
-                        <div class="flex flex-row items-center">
+                        <div class="flex flex-row mt-4">
                             <div class="w-1/6">
                                 <img class="rounded" src="{{ drink.image.url }}" width="150" height="100"/>
                             </div>
                             <div class="w-5/6">
-                                <div class="flex flex-row items-center">
-                                    <div class="flex items-center">
-                                        <input type="checkbox" name="items[]" class="form-checkbox h-5 w-5 text-gray-600" value="{{ drink.pk }}">
-                                        <label class="ml-2 text-gray-700">{{ drink.name }}</label>
+                                <div class="flex flex-row">
+                                    <div class="form-check">
+                                        <input type="checkbox" name="items[]" class="form-check-input" value="{{ drink.pk }}">
+                                        <label class="form-check-label">{{ drink.name }}</label>
                                     </div>
-                                    <p class="font-bold pl-5 text-gray-800">{{ drink.price }}</p>
+                                    <p class="font-bold pl-5">{{ drink.price }}</p>
                                 </div>
-                                <p class="text-gray-600">{{ drink.description }}</p>
+                                <p>{{ drink.description }}</p>
                             </div>
                         </div>
                         <hr class="my-4" />
                         {% endfor %}
                     </div>
 
-                    <button class="bg-gray-800 text-white py-2 px-4 mt-5 rounded">Place Order!</button>
+                    <button class="bg-yellow-300 px-2 py-2 rounded-2xl font-bold mt-5">Place Order!</button>
                 </form>
             </div>
         </div>
