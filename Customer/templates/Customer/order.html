@@ -8,8 +8,8 @@
 
 </head>
 <body> 
-    <header class="text-center font-bold py-6 bg-slate-700 text-4xl">Order Page</header>
-    <div class="mx-auto mb-5 bg-gray-200">
+    <header class="text-center font-light py-6 bg-slate-700 text-4xl">Order Page</header>
+    <div class="container mx-auto mb-5 bg-white">
         <div class="flex justify-center mt-1">
             <div class="w-full p-4 flex-1">
                 <form method="POST">
@@ -99,29 +99,35 @@
                     </div>
 
                     <div class="pt-3">
-                            <label for="name">Full Name: </label>
-                            <input type="text" name="name" class="border border-slate-700" placeholder="Your name" required>
+                        <label for="name" class="block">Full Name:</label>
+                        <input type="text" name="name" class="w-full border border-gray-300 py-1 pl-3" placeholder="Your name" required>
                     </div>
                     <div class="pt-3">
-                        <label for="email">Email: </label>
-                        <input type="email" name="email" class="border border-slate-700" placeholder="someone@example.com" required>
+                        <label for="email" class="block">Email:</label>
+                        <input type="email" name="email" class="w-full border border-gray-300 py-1 pl-3" placeholder="someone@example.com" required>
                     </div>
                     <div class="pt-3">
-                        <label for="name">Street: </label>
-                        <input type="text" name="street" class="border border-slate-700" placeholder="1234 Main St." required>
+                        <label for="street" class="block">Street:</label>
+                        <input type="text" name="street" class="w-full border border-gray-300 py-1 pl-3" placeholder="1234 Main St." required>
                     </div>
-                    <div class="pt-3">
-                        <label for="city">City: </label>
-                        <input type="text" name="city" class="border border-slate-700" placeholder="Ikeja" required>
-                    </div>
-                    <div class="pt-3">
-                        <label for="state">State: </label>
-                        <input type="text" name="state" class="border border-slate-700" placeholder="Lagos" required>
-                    </div>
-                    <div class="pt-3">
-                        <label for="name">Zip Code: </label>
-                        <input type="" name="zip" class="border border-slate-700" placeholder="******" required>
-                    </div>
+
+                    <div class="flex flex-wrap">
+                        <div class="w-1/3">
+                            <div class="pt-3">
+                                <label for="city" class="block">City:</label>
+                                <input type="text" name="city" class="w-full border border-gray-300 py-1 pl-3" placeholder="Ikeja" required>
+                            </div>
+                            <div class="pt-3">
+                                <label for="state" class="block">State:</label>
+                                <input type="text" name="state" class="w-full border border-gray-300 py-1 pl-3" placeholder="Lagos" required>
+                            </div>
+                            <div class="pt-3">
+                                <label for="zip" class="block">Zip Code:</label>
+                                <input type="text" name="zip" class="w-full border border-gray-300 py-1 pl-3" placeholder="******" required>
+                            </div>
+                        </div>
+                    </div>        
+                    
 
 
                     <button class="bg-black text-white px-6 py-3 text-sm font-serif mt-5">Place Order!</button>
@@ -129,6 +135,7 @@
             </div>
         </div>
     </div>
+    <footer class="text-center font-light py-4 bg-slate-700 text-sm">Copyright &copy 2023 Belema. All Rights Reserved.</footer>
 
 </body>
 </html>
