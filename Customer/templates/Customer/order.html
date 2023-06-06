@@ -134,16 +134,36 @@
                                 </li>
                             </nav>
                         </div>
-                    </div>        
-                    
-
-
-                    <button class="bg-black text-white px-6 py-3 text-sm font-serif mt-5">Place Order!</button>
+                    </div>  
+                                         
+                    {% comment %} <button class="bg-black text-gray-100 px-7 py-2 text-xs font-serif mt-14 shadow-lg">PLACE ORDER!</button> {% endcomment %}
+                    <button id="triggerBtn" class="bg-black text-gray-100 px-7 py-2 text-xs font-serif mt-14 shadow-lg">PLACE ORDER!</button> 
+                    <!--alert container-->
+                    <div id="alertContainer" class="fixed inset-0 flex items-center justify-center">
+                        <div class="bg-white rounded-lg shadow-lg p-4">
+                          <div class="mb-4">
+                            <h3 class="text-lg font-bold">Confirm Action</h3>
+                            <p class="text-gray-700">Are you sure you want to submit?</p>
+                          </div>
+                            <a href="order_confirmation.html" class="px-4 py-2 bg-blue-500 text-white rounded">Proceed</a>
+                            <a href="{% url 'order' %}"class="px-4 py-2 bg-gray-500 text-white rounded">Go Back</a>
+                          </div>
+                      </div>
                 </form>
             </div>
         </div>
     </div>
+
     <footer class="text-center font-light py-4 bg-slate-700 text-sm">Copyright &copy 2023 Belema. All Rights Reserved.</footer>
 
 </body>
 </html>
+
+<script>
+    const triggerBtn = document.getElementById('triggerBtn');
+    const alertContainer = document.getElementById('alertContainer');
+  
+    triggerBtn.addEventListener('click', () => {
+      alertContainer.classList.remove('hidden');
+    });
+  </script>
