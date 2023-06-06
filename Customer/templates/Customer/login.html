@@ -16,16 +16,19 @@
             <hr class="mt-2">
 
             <div class="mt-10">
-                <br>
-                <label for="username" class=" text-black">Username: </label>
-                <input type="text" name="username" required class="rounded-3xl  w-96 border border-red-300">
+                <form method="POST">
+                    {% csrf_token %}
+                    <br>
+                    <label for="username" class=" text-black">Username: </label>
+                    <input type="text" name="username" required class="rounded-3xl  w-96 border border-red-300">
 
-                <br><br><br>
-                <label for="passowrd" class=" text-black">Password: </label>
-                <input type="passowrd" name="passowrd" required class="rounded-3xl border border-red-300 w-96">
-                  
-                <br><br><br>
-                <a href="{% url 'order' %}" class=" ml-16 bg-center rounded-3xl bg-red-400 w-60 px-40 py-1 text-center text-white">Login</a>  
+                    <br><br><br>
+                    <label for="passowrd" class=" text-black">Password: </label>
+                    <input type="passowrd" name="passowrd" required class="rounded-3xl border border-red-300 w-96">
+                    
+                    <br><br><br>
+                    <a href="{% url 'order' %}" class=" ml-16 bg-center rounded-3xl bg-red-400 w-60 px-40 py-1 text-center text-white">Login</a> 
+                </form>     
             </div>
             <br>
             <a href="login.html" class="mt-15 text-center text-sm underline font-bold text-black">Forgot Password?</a>
