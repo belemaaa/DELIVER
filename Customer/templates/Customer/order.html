@@ -173,11 +173,11 @@
     alertContainer.classList.remove('hidden');
     });
 
-    // Handle the "Yes" button click
+    {% comment %} // Handle the "Yes" button click
     yesBtn.addEventListener('click', () => {
     // Redirect to the next page
-    window.location.href = 'order_confirmation.html';
-    });
+    window.location.href = "order-confirmation";
+    }); {% endcomment %}
 
     // Handle the "No" button click
     noBtn.addEventListener('click', () => {
