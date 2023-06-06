@@ -1,24 +1,32 @@
-{% extends 'customer/base.html' %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device.width", initial-scale=1.0, shrink-to-fit=no>
+    <title>Deliver</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 
-{% block content %}
-<div class="container mb-5">
-    <div class="flex justify-center mt-1">
-        <div class="col-md-5 col-sm-12 p-4 text-center">
-            <h1 class="text-3xl font-bold">Order Submitted!</h1>
-            <p class="mt-4">You should receive a confirmation email soon.</p>
-            <a href="{% url 'index' %}" class="mt-4 text-blue-500 hover:text-blue-700">Go to the homepage</a>
+</head>
+<body> 
+    <div class="container mb-5">
+        <header class="text-center font-bold py-6 bg-slate-700 text-4xl">Order Page</header>
+        <div class="flex justify-center mt-1">
+            <div class="md:w-5/12 sm:w-full text-center">
+                <h1 class="text-3xl font-bold">Order Submitted!</h1>
+                <p class="mt-4">You should receive a confirmation email soon.</p>
+                <a href="{% url 'index' %}" class="mt-4 text-blue-500 hover:text-blue-700">Go to the homepage</a>
+            </div>
+        </div>
+
+        <div class="flex justify-center mt-5">
+            <div class="col-md-5 col-sm-12 text-center">
+                <h3 class="pb-3 text-xl font-bold">Order Summary:</h3>
+                {% for item in items %}
+                    <p>{{ item.name }} <span class="pl-3">{{ item.price }}</span></p>
+                {% endfor %}
+
+                <p class="font-bold pt-4">Total: {{ price }}</p>
+            </div>
         </div>
     </div>
 
-    <div class="flex justify-center mt-5">
-        <div class="col-md-5 col-sm-12 text-center">
-            <h3 class="pb-3 text-xl font-bold">Order Summary:</h3>
-            {% for item in items %}
-                <p>{{ item.name }} <span class="pl-3">{{ item.price }}</span></p>
-            {% endfor %}
-
-            <p class="font-bold pt-4">Total: {{ price }}</p>
-        </div>
-    </div>
-</div>
-{% endblock content %}
