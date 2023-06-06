@@ -162,7 +162,6 @@
 </html>
 
 <script>
-    // Get the elements
     const triggerBtn = document.getElementById('triggerBtn');
     const alertContainer = document.getElementById('alertContainer');
     const yesBtn = document.getElementById('yesBtn');
@@ -173,15 +172,11 @@
     alertContainer.classList.remove('hidden');
     });
 
-    {% comment %} // Handle the "Yes" button click
     yesBtn.addEventListener('click', () => {
-    // Redirect to the next page
     window.location.href = "order-confirmation";
-    }); {% endcomment %}
+    });
 
-    // Handle the "No" button click
     noBtn.addEventListener('click', () => {
-    // Hide the alert
     alertContainer.classList.add('hidden');
     });
 
