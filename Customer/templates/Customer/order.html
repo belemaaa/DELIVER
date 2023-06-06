@@ -136,19 +136,21 @@
                         </div>
                     </div>  
                                          
-                    {% comment %} <button class="bg-black text-gray-100 px-7 py-2 text-xs font-serif mt-14 shadow-lg">PLACE ORDER!</button> {% endcomment %}
-                    <button id="triggerBtn" class="bg-black text-gray-100 px-7 py-2 text-xs font-serif mt-14 shadow-lg">PLACE ORDER!</button> 
-                    <!--alert container-->
-                    <div id="alertContainer" class="fixed inset-0 flex items-center justify-center">
+                    <button id="triggerBtn" class="bg-black text-gray-100 px-7 py-2 text-xs font-serif mt-14 shadow-lg">PLACE ORDER!</button>
+
+                    <!-- Alert container -->
+                    <div id="alertContainer" class="fixed inset-0 items-center justify-center hidden">
                         <div class="bg-white rounded-lg shadow-lg p-4">
-                          <div class="mb-4">
-                            <h3 class="text-lg font-bold">Confirm Action</h3>
-                            <p class="text-gray-700">Are you sure you want to submit?</p>
-                          </div>
-                            <a href="order_confirmation.html" class="px-4 py-2 bg-blue-500 text-white rounded">Proceed</a>
-                            <a href="{% url 'order' %}"class="px-4 py-2 bg-gray-500 text-white rounded">Go Back</a>
-                          </div>
-                      </div>
+                        <div class="mb-4">
+                            <h3 class="text-lg font-bold">Do you want to proceed?</h3>
+                        </div>
+                        <div class="flex justify-end">
+                            <button id="yesBtn" class="px-4 py-2 bg-blue-500 text-white rounded mr-2">Yes</button>
+                            <button id="noBtn" class="px-4 py-2 bg-red-500 text-white rounded">No</button>
+                        </div>
+                        </div>
+                    </div>
+                                        
                 </form>
             </div>
         </div>
@@ -160,10 +162,30 @@
 </html>
 
 <script>
+    // Get the elements
     const triggerBtn = document.getElementById('triggerBtn');
     const alertContainer = document.getElementById('alertContainer');
-  
+    const yesBtn = document.getElementById('yesBtn');
+    const noBtn = document.getElementById('noBtn');
+
+    // Show the alert when the trigger button is clicked
     triggerBtn.addEventListener('click', () => {
-      alertContainer.classList.remove('hidden');
+    alertContainer.classList.remove('hidden');
     });
-  </script>
+
+    // Handle the "Yes" button click
+    yesBtn.addEventListener('click', () => {
+    // Redirect to the next page
+    window.location.href = 'order_confirmation.html';
+    });
+
+    // Handle the "No" button click
+    noBtn.addEventListener('click', () => {
+    // Hide the alert
+    alertContainer.classList.add('hidden');
+    });
+
+</script>
+
+
+
