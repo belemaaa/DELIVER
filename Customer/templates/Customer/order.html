@@ -12,7 +12,7 @@
     <div class="container mx-auto mb-5 bg-white">
         <div class="flex justify-center mt-1">
             <div class="w-full p-4 flex-1">
-                <form method="POST">
+                <form method="POST" id="orderForm">
                     {% csrf_token %}
                     <div class="pt-5">
                         {% for app in appetizers %}
@@ -98,6 +98,7 @@
                         {% endfor %}
                     </div>
 
+                    
                     <div class="pt-3">
                         <label for="name" class="block">Full Name:</label>
                         <input type="text" name="name" class="w-full border border-gray-300 py-1 pl-3" placeholder="Your name" required>
@@ -144,7 +145,7 @@
                         </div>
                         <div class="flex justify-end">
                             <button id="noBtn" class="px-4 py-2 bg-white shadow-xl text-black rounded mx-4">Go Back</button>
-                            <button id="yesBtn" class="px-4 py-2 bg-black shadow-xl text-white rounded mr-2 mx-4">Place Order</button>
+                            <button id="yesBtn" type="submit" class="px-4 py-2 bg-black shadow-xl text-white rounded mr-2 mx-4">Place Order</button>
                         </div>
                         </div>
                     </div>
@@ -161,7 +162,7 @@
 </html>
 
 <script>
-    const triggerBtn = document.getElementById('triggerBtn');
+    {% comment %} const triggerBtn = document.getElementById('triggerBtn');
     const alertContainer = document.getElementById('alertContainer');
     const noBtn = document.getElementById('noBtn');
     const yesBtn = document.getElementById('yesBtn');
@@ -169,15 +170,26 @@
     // Show the alert when the trigger button is clicked
     triggerBtn.addEventListener('click', () => {
         alertContainer.classList.remove('hidden');
-    });
+    }); {% endcomment %}
 
     {% comment %} yesBtn.addEventListener('click', () => {
     window.location.href = 'order-confirmation';
     });  {% endcomment %}
 
-    noBtn.addEventListener('click', () => {
+    {% comment %} noBtn.addEventListener('click', () => {
         alertContainer.classList.add('hidden');
-    });
+    }); {% endcomment %}
+
+    document.getElementById('triggerBtn').addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent default form submission behavior
+      
+        // Show the alert dialog
+        if (confirm('Are you sure you want to proceed?')) {
+          // Manually submit the form
+          document.getElementById('orderForm').submit();
+        }
+      });
+      
 
 </script>
 
