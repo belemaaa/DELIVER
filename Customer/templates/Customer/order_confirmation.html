@@ -22,7 +22,7 @@
             <div class="col-md-5 col-sm-12 text-center">
                 <h3 class="pb-3 text-xl font-bold">Order Summary:</h3>
                 {% for item in items %}
-                    <p>{{ item.name }} <span class="pl-3">{{ item.price }}</span></p>
+                    <p>{{ item.name }}: <span class="pl-3 my-16">{{ item.price }}</span></p>
                 {% endfor %}
 
                 <p class="font-bold pt-4">Total: {{ price }}</p>

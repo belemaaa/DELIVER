@@ -34,7 +34,7 @@ class Order(View):
         street = request.POST.get('street')
         city = request.POST.get('city')
         state = request.POST.get('state')
-        zip = request.POST.get('zip')
+        zip_code = request.POST.get('zip_code')
         
         order_items = {
             'items': []
@@ -65,20 +65,18 @@ class Order(View):
             street=street,
             city=city,
             state=state,
-            zip=zip,
-            price=price)
+            zip_code=zip_code,
+            price=price
+            )
         order.item.add(*item_ids)   
 
         context = {
-            'name': name,
-            'email': email,
-            'street': street,
-            'city': city,
-            'state': state,
-            'zip': zip,
             'items': order_items['items'],
             'price': price
         } 
+        request.session['items'] = items
+        request.session['price'] = price
+
         return render(request, 'Customer/order_confirmation.html', context)
 
-    
+
