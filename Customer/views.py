@@ -29,6 +29,13 @@ class Order(View):
         return render(request, 'Customer/order.html', context)
     
     def post(self, request, *args, **kwargs):
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        street = request.POST.get('street')
+        city = request.POST.get('city')
+        state = request.POST.get('state')
+        zip = request.POST.get('zip')
+        
         order_items = {
             'items': []
         }
@@ -48,7 +55,7 @@ class Order(View):
         # sum total price
         price = 0
         item_ids = []
-        
+
         for item in order_items['items']:
             price += item['price']
             item_ids.append(item['id'])
@@ -57,6 +64,12 @@ class Order(View):
         order.item.add(*item_ids)   
 
         context = {
+            'name': name,
+            'email': email,
+            'street': street,
+            'city': city,
+            'state': state,
+            'zip': zip,
             'items': order_items['items'],
             'price': price
         } 

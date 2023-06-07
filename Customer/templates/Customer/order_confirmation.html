@@ -20,6 +20,14 @@
 
         <div class="flex justify-center mt-5">
             <div class="col-md-5 col-sm-12 text-center">
+                <h3 class="font-bold">Your Data:</h3>
+                <p>Fullname: {{ name }}</p>
+                <p>Email: {{ email }}</p>
+                <p>Street:: {{ street }}</p>
+                <p>City: {{ city }}</p>
+                <p>State: {{ state }}</p>
+                <p>Zip Code: {{ zip }}</p>
+
                 <h3 class="pb-3 text-xl font-bold">Order Summary:</h3>
                 {% for item in items %}
                     <p>{{ item.name }} <span class="pl-3">{{ item.price }}</span></p>
