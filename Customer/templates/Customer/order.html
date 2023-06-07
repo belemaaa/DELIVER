@@ -136,17 +136,17 @@
                         </div>
                     </div>  
                                          
-                    <button id="triggerBtn" class="bg-black text-gray-100 px-7 py-2 text-xs font-serif mt-14 shadow-lg">PLACE ORDER!</button>
+                    <button id="triggerBtn" class="bg-black text-gray-100 px-7 py-2 text-xs font-serif mt-14 shadow-lg">SUBMIT ORDER!</button>
 
                     <!-- Alert container -->
-                    <div id="alertContainer" class="fixed inset-0 items-center justify-center hidden">
-                        <div class="bg-white rounded-lg shadow-lg p-4">
+                    {% comment %} <div id="alertContainer" class="fixed inset-0 items-center hidden">
+                        <div class="bg-slate-700 shadow-lg p-4">
                         <div class="mb-4">
-                            <h3 class="text-lg font-bold">Submit Your Order!</h3>
+                            <h3 class="text-lg font-bold text-white">Submit Your Order!</h3>
                         </div>
                         <div class="flex justify-end">
-                            <button id="noBtn" class="px-4 py-2 bg-blend-lighten text-white rounded mx-4">Go Back</button>
-                            <button id="yesBtn" class="px-4 py-2 bg-blend-darken text-white rounded mr-2 mx-4">Place Order</button>
+                            <button id="noBtn" class="px-4 py-2 bg-white shadow-xl text-black rounded mx-4">Go Back</button>
+                            <button id="yesBtn" type="submit" class="px-4 py-2 bg-black shadow-xl text-white rounded mr-2 mx-4">Place Order</button>
                         </div>
                         </div>
                     </div>
@@ -172,15 +172,15 @@
     alertContainer.classList.remove('hidden');
     });
 
-    yesBtn.addEventListener('click', () => {
+    {% comment %} yesBtn.addEventListener('click', () => {
     window.location.href = 'order-confirmation';
-    });
+    }); {% endcomment %}
 
-    noBtn.addEventListener('click', () => {
+    {% comment %} noBtn.addEventListener('click', () => {
     alertContainer.classList.add('hidden');
     });
 
 </script>
 
 
-
+ {% endcomment %} 

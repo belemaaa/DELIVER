@@ -45,9 +45,9 @@ class Order(View):
             }
             order_items['items'].append(item_data)
 
-            # sum total price
-            price = 0
-            item_ids = []
+        # sum total price
+        price = 0
+        item_ids = []
 
         for item in order_items['items']:
             price += item['price']
