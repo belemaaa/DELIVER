@@ -111,47 +111,46 @@
                         <input type="text" name="street" class="w-full border border-gray-300 py-1 pl-3" placeholder="1234 Main St." required>
                     </div>
 
-                    <div class="">
-                        <div>
-                            <nav class="flex">
-                                <li class="list-none inline-block mr-7">
-                                    <div class="pt-3">
-                                        <label for="city" class="block">City:</label>
-                                        <input type="text" name="city" class="w-96 border border-gray-300 py-1 pl-3" placeholder="Ikeja" required>
-                                    </div>
-                                </li>
-                                <li class="list-none inline-block mx-7">
-                                    <div class="pt-3">
-                                        <label for="state" class="block">State:</label>
-                                        <input type="text" name="state" class="w-96 border border-gray-300 py-1 pl-3" placeholder="Lagos" required>
-                                    </div>
-                                </li>
-                                <li class="list-none inline-block ml-7">
-                                    <div class="pt-3">
-                                        <label for="zip" class="block">Zip Code:</label>
-                                        <input type="text" name="zip" class="w-96 border border-gray-300 py-1 pl-3" placeholder="******" required>
-                                    </div>
-                                </li>
-                            </nav>
-                        </div>
-                    </div>  
+                    <div>
+                        <nav class="flex">
+                            <li class="list-none inline-block mr-7">
+                                <div class="pt-3">
+                                    <label for="city" class="block">City:</label>
+                                    <input type="text" name="city" class="w-96 border border-gray-300 py-1 pl-3" placeholder="Ikeja" required>
+                                </div>
+                            </li>
+                            <li class="list-none inline-block mx-7">
+                                <div class="pt-3">
+                                    <label for="state" class="block">State:</label>
+                                    <input type="text" name="state" class="w-96 border border-gray-300 py-1 pl-3" placeholder="Lagos" required>
+                                </div>
+                            </li>
+                            <li class="list-none inline-block ml-7">
+                                <div class="pt-3">
+                                    <label for="zip" class="block">Zip Code:</label>
+                                    <input type="text" name="zip" class="w-96 border border-gray-300 py-1 pl-3" placeholder="******" required>
+                                </div>
+                            </li>
+                        </nav>
+                    </div> 
                                          
-                    <button id="triggerBtn" class="bg-black text-gray-100 px-7 py-2 text-xs font-serif mt-14 shadow-lg">SUBMIT ORDER!</button>
-
-                    <!-- Alert container -->
-                    {% comment %} <div id="alertContainer" class="fixed inset-0 items-center hidden">
+                    <button id="triggerBtn" class="bg-black text-gray-100 px-7 py-2 text-xs font-serif mt-14 shadow-lg">SUBMIT ORDER!</button>  
+                    
+                     <!-- Alert container -->
+                    <div id="alertContainer" class="fixed inset-0 items-center justify-center hidden">
                         <div class="bg-slate-700 shadow-lg p-4">
                         <div class="mb-4">
                             <h3 class="text-lg font-bold text-white">Submit Your Order!</h3>
                         </div>
                         <div class="flex justify-end">
                             <button id="noBtn" class="px-4 py-2 bg-white shadow-xl text-black rounded mx-4">Go Back</button>
-                            <button id="yesBtn" type="submit" class="px-4 py-2 bg-black shadow-xl text-white rounded mr-2 mx-4">Place Order</button>
+                            <button id="yesBtn" class="px-4 py-2 bg-black shadow-xl text-white rounded mr-2 mx-4">Place Order</button>
                         </div>
                         </div>
                     </div>
-                                        
+
                 </form>
+                
             </div>
         </div>
     </div>
@@ -164,23 +163,23 @@
 <script>
     const triggerBtn = document.getElementById('triggerBtn');
     const alertContainer = document.getElementById('alertContainer');
-    const yesBtn = document.getElementById('yesBtn');
     const noBtn = document.getElementById('noBtn');
+    const yesBtn = document.getElementById('yesBtn');
 
     // Show the alert when the trigger button is clicked
     triggerBtn.addEventListener('click', () => {
-    alertContainer.classList.remove('hidden');
+        alertContainer.classList.remove('hidden');
     });
 
     {% comment %} yesBtn.addEventListener('click', () => {
     window.location.href = 'order-confirmation';
-    }); {% endcomment %}
+    });  {% endcomment %}
 
-    {% comment %} noBtn.addEventListener('click', () => {
-    alertContainer.classList.add('hidden');
+    noBtn.addEventListener('click', () => {
+        alertContainer.classList.add('hidden');
     });
 
 </script>
 
 
- {% endcomment %} 
+
