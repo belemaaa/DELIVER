@@ -136,11 +136,12 @@
                     </div> 
                           
                     <div class="flex">
-                        <button id="triggerBtn" class="bg-black text-gray-100 px-7 py-2 text-xs font-serif mt-14 shadow-lg">SUBMIT ORDER!</button>
-                    </div>
-                    
+                        <button id="triggerBtn" type="submit" class="bg-black text-gray-100 px-7 py-2 text-xs font-serif mt-14 shadow-lg">SUBMIT ORDER!</button>
+                    </div> 
+
+                
                      <!-- alert container -->
-                    {% comment %} <div id="alertContainer" class="fixed inset-0 items-center justify-center hidden">
+                    <div id="alertContainer" class="fixed inset-0 items-center justify-center hidden">
                         <div class="bg-slate-700 shadow-lg p-4">
                         <div class="mb-4">
                             <h3 class="text-lg font-bold text-white">Submit Your Order!</h3>
@@ -150,7 +151,7 @@
                             <button id="yesBtn" type="submit" class="px-4 py-2 bg-black shadow-xl text-white rounded mr-2 mx-4">Place Order</button>
                         </div>
                         </div>
-                    </div> {% endcomment %}
+                    </div>
 
                 </form>
                 
@@ -160,29 +161,32 @@
 
     <footer class="text-center font-light py-4 bg-slate-700 text-sm text-white">Copyright &copy 2023 Belema. All Rights Reserved.</footer>
 
+
+    <script>
+        const triggerBtn = document.getElementById('triggerBtn');
+        const alertContainer = document.getElementById('alertContainer');
+        const noBtn = document.getElementById('noBtn');
+        const yesBtn = document.getElementById('yesBtn');
+    
+        // Show the alert when the trigger button is clicked
+        triggerBtn.addEventListener('click', () => {
+        alertContainer.classList.remove('hidden');
+        });
+    
+        yesBtn.addEventListener('click', () => {
+        window.location.href = 'order-confirmation';
+        }); 
+    
+        noBtn.addEventListener('click', () => {
+        alertContainer.classList.add('hidden');
+        }); 
+    </script> 
+
 </body>
 </html>
 
-<script>
-    {% comment %} const triggerBtn = document.getElementById('triggerBtn');
-    const alertContainer = document.getElementById('alertContainer');
-    const noBtn = document.getElementById('noBtn');
-    const yesBtn = document.getElementById('yesBtn');
 
-    // Show the alert when the trigger button is clicked
-    triggerBtn.addEventListener('click', () => {
-        alertContainer.classList.remove('hidden');
-    }); {% endcomment %}
-
-    {% comment %} yesBtn.addEventListener('click', () => {
-    window.location.href = 'order-confirmation';
-    });  {% endcomment %}
-
-    {% comment %} noBtn.addEventListener('click', () => {
-        alertContainer.classList.add('hidden');
-    }); {% endcomment %}
-
-    document.getElementById('triggerBtn').addEventListener('click', function(event) {
+    {% comment %} document.getElementById('triggerBtn').addEventListener('click', function(event) {
         event.preventDefault(); // Prevent default form submission behavior
       
         // Show the alert dialog
@@ -190,10 +194,8 @@
           // Manually submit the form
           document.getElementById('orderForm').submit();
         }
-      });
+      }); {% endcomment %}
       
-
-</script>
 
 
 
