@@ -88,9 +88,6 @@ class Order(View):
             'items': order_items['items'],
             'price': price
         } 
-        request.session['items'] = items
-        request.session['price'] = price
-
         return render(request, 'Customer/order_confirmation.html', context)
 
 
