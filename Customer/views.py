@@ -110,6 +110,7 @@ class OrderConfirmation(View):
 
 
 class OrderPayConfirmation(View):
-    pass
+    def get(self, request, *args, **kwargs):
+        return render(request, 'Customer/order_pay_confirmation.html')
 
 
