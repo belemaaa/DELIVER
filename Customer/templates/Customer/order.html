@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device.width", initial-scale=1.0, shrink-to-fit=no>
     <title>Order</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+    <!-- Default theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
     <script src="https://cdn.tailwindcss.com"></script>
 
 </head>
@@ -167,21 +171,27 @@
         const alertContainer = document.getElementById('alertContainer');
         const noBtn = document.getElementById('noBtn');
         const yesBtn = document.getElementById('yesBtn');
+
+        triggerBtn.addEventListener('click', () => {
+            
+        });
     
         // Show the alert when the trigger button is clicked
         triggerBtn.addEventListener('click', () => {
-        alertContainer.classList.remove('hidden');
+            alertContainer.classList.remove('hidden');
         });
     
         yesBtn.addEventListener('click', () => {
-        window.location.href = 'order-confirmation';
+            window.location.href = '';
         }); 
     
         noBtn.addEventListener('click', () => {
-        alertContainer.classList.add('hidden');
+            alertContainer.classList.add('hidden');
         }); 
     </script> 
-
+    
+    <!-- JavaScript -->
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
 </body>
 </html>
 

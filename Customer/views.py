@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.views import View
 from django.core.mail import send_mail
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 from .models import MenuItem, Category, OrderModel
 
 # Create your views here.
@@ -28,7 +30,8 @@ class Order(View):
 
         #render the template
         return render(request, 'Customer/order.html', context)
-    
+
+class OrderConfirmation(View):    
     def post(self, request, *args, **kwargs):
         name = request.POST.get('name')
         email = request.POST.get('email')
