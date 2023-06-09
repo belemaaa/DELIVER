@@ -30,8 +30,7 @@ class Order(View):
 
         #render the template
         return render(request, 'Customer/order.html', context)
-
-class OrderConfirmation(View):    
+    
     def post(self, request, *args, **kwargs):
         name = request.POST.get('name')
         email = request.POST.get('email')

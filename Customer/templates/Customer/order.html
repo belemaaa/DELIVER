@@ -4,10 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device.width", initial-scale=1.0, shrink-to-fit=no>
     <title>Order</title>
-    <!-- CSS -->
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
-    <!-- Default theme -->
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
     <script src="https://cdn.tailwindcss.com"></script>
 
 </head>
@@ -140,10 +136,9 @@
                     </div> 
                           
                     <div class="flex">
-                        <button id="triggerBtn" type="submit" class="bg-black text-gray-100 px-7 py-2 text-xs font-serif mt-14 shadow-lg">SUBMIT ORDER!</button>
+                        <button id="triggerBtn" onclick="showConfirmation()" type="submit" class="bg-black text-gray-100 px-7 py-2 text-xs font-serif mt-14 shadow-lg">SUBMIT ORDER!</button>
                     </div> 
-
-                
+               
                      <!-- alert container -->
                     <div id="alertContainer" class="fixed inset-0 items-center justify-center hidden">
                         <div class="bg-slate-700 shadow-lg p-4">
@@ -188,10 +183,8 @@
         noBtn.addEventListener('click', () => {
             alertContainer.classList.add('hidden');
         }); 
-    </script> 
+    </script>
     
-    <!-- JavaScript -->
-    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
 </body>
 </html>
 
