@@ -100,11 +100,11 @@
                     beforeSend: function(request) {
                         request.setRequestHeader('X-CSRFToken', csrftoken)
                     },
-                    data: JSON.stringify({'is_paid': true})
+                    data: JSON.stringify({'is_paid': true}),
                     success: function(data) {
                         window.location.href = '/payment-confirmation/'
-                    }
-                })
+                    },
+                });
             });
             }
         }, '#paypal-button');
