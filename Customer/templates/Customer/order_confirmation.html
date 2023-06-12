@@ -21,16 +21,62 @@
         <div class="flex justify-center mt-5">
             <div class="col-md-5 col-sm-12 text-center">
                 <h3 class="pb-3 text-xl font-bold">Order Summary:</h3>
-                {% for item in items %}
+                {% for item in items.all %}
                     <p>{{ item.name }}: <span class="pl-3 my-16">{{ item.price }}</span></p>
                 {% endfor %}
 
                 <p class="font-bold pt-4">Total: {{ price }}</p>
             </div>
         </div>
+        <div class="flex justify-center mt-10">
+            <div class="md:w-1/2 text-center">
+                <div id="paypal-button"></div>
+            </div>
+        </div>
     </div>
     <footer class="text-center font-light py-4 bg-slate-700 text-sm text-white">Copyright &copy 2023 Belema. All Rights Reserved.</footer>
 
+    <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+    <script>
+        paypal.Button.render({
+            // Configure environment
+            env: 'sandbox',
+            client: {
+            sandbox: 'demo_sandbox_client_id',
+            production: 'demo_production_client_id'
+            },
+            // Customize button (optional)
+            locale: 'en_US',
+            style: {
+            size: 'small',
+            color: 'gold',
+            shape: 'pill',
+            },
+
+            // Enable Pay Now checkout flow (optional)
+            commit: true,
+
+            // Set up a payment
+            payment: function(data, actions) {
+            return actions.payment.create({
+                transactions: [{
+                amount: {
+                    total: '0.01',
+                    currency: 'USD'
+                }
+                }]
+            });
+            },
+            // Execute the payment
+            onAuthorize: function(data, actions) {
+            return actions.payment.execute().then(function() {
+                // Show a confirmation message to the buyer
+                window.alert('Thank you for your purchase!');
+            });
+            }
+        }, '#paypal-button');
+
+    </script>
 </body>
 </html>    
 
