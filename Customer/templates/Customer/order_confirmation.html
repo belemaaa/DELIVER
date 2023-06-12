@@ -65,11 +65,11 @@
             // Configure environment
             env: 'sandbox',
             client: {
-            sandbox: 'demo_sandbox_client_id',
-            production: 'demo_production_client_id'
+              sandbox: 'AYUbysussc_Aej-YvpFwaF6ZAJwDVtvLrHnotfwb3oxK6FUznT_Am0Dq8DJo2NvMj18-oVg1xAlODMHB',
+              production: 'demo_production_client_id'
             },
             // Customize button (optional)
-            locale: 'en_NG',
+            locale: 'en_US',
             style: {
             size: 'medium',
             color: 'gold',
@@ -81,31 +81,31 @@
 
             // Set up a payment
             payment: function(data, actions) {
-            return actions.payment.create({
-                transactions: [{
-                amount: {
-                    total: '{{ price }}',
-                    currency: 'NGN'
-                }
-                }]
-            });
+                return actions.payment.create({
+                    transactions: [{
+                    amount: {
+                        total: '{{ price }}',
+                        currency: 'USD'
+                    }
+                    }]
+                });
             },
             // Execute the payment
             onAuthorize: function(data, actions) {
-            return actions.payment.execute().then(function() {
-                // Show a confirmation message to the buyer
-                $.ajax({
-                    type: 'POST',
-                    url: '{% url 'order-confirmation' pk %}',
-                    beforeSend: function(request) {
-                        request.setRequestHeader('X-CSRFToken', csrftoken)
-                    },
-                    data: JSON.stringify({'is_paid': true}),
-                    success: function(data) {
-                        window.location.href = '/payment-confirmation/'
-                    },
+                return actions.payment.execute().then(function() {
+                    // Show a confirmation message to the buyer
+                    $.ajax({
+                        type: 'POST',
+                        url: '{% url 'order-confirmation' pk %}',
+                        beforeSend: function(request) {
+                            request.setRequestHeader('X-CSRFToken', csrftoken)
+                        },
+                        data: JSON.stringify({'is_paid': true}),
+                        success: function(data) {
+                            window.location.href = '/payment-confirmation/'
+                        },
+                    });
                 });
-            });
             }
         }, '#paypal-button');
 
