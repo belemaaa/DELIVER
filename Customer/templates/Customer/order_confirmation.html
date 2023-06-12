@@ -60,7 +60,7 @@
             return cookieValue;
         }
         const csrftoken = getCookie('csrftoken');
-        
+
         paypal.Button.render({
             // Configure environment
             env: 'sandbox',
@@ -96,7 +96,14 @@
                 // Show a confirmation message to the buyer
                 $.ajax({
                     type: 'POST',
-                    url: '{% url 'order-confirmation' pk %}'
+                    url: '{% url 'order-confirmation' pk %}',
+                    beforeSend: function(request) {
+                        request.setRequestHeader('X-CSRFToken', csrftoken)
+                    },
+                    data: JSON.stringify({'is_paid': true})
+                    success: function(data) {
+                        window.location.href = '/payment-confirmation/'
+                    }
                 })
             });
             }
