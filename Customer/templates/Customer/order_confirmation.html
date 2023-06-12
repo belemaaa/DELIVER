@@ -8,8 +8,8 @@
 
 </head>
 <body class="flex flex-col min-h-screen"> 
+    <header class="text-center font-light text-white py-6 bg-slate-700 text-4xl">Order Confirmation</header>
     <div class="mb-5 flex-grow">
-        <header class="text-center font-light text-white py-6 bg-slate-700 text-4xl">Order Confirmation</header>
         <div class="flex justify-center mt-1">
             <div class="md:w-5/12 sm:w-full text-center">
                 <h1 class="text-3xl font-bold">Order Submitted!</h1>
@@ -30,14 +30,37 @@
         </div>
         <div class="flex justify-center mt-10">
             <div class="md:w-1/2 text-center">
+                <h3 class="text-xl">Pay now or Pay With Cash On Delivery?</h3>
+            </div>
+        </div>
+        <div class="flex justify-center mt-4">
+            <div class="md:w-1/2 text-center">
                 <div id="paypal-button"></div>
             </div>
         </div>
     </div>
     <footer class="text-center font-light py-4 bg-slate-700 text-sm text-white">Copyright &copy 2023 Belema. All Rights Reserved.</footer>
 
+
     <script src="https://www.paypalobjects.com/api/checkout.js"></script>
     <script>
+        function getCookie(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    // Does this cookie string begin with the name we want?
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+        const csrftoken = getCookie('csrftoken');
+        
         paypal.Button.render({
             // Configure environment
             env: 'sandbox',
@@ -46,9 +69,9 @@
             production: 'demo_production_client_id'
             },
             // Customize button (optional)
-            locale: 'en_US',
+            locale: 'en_NG',
             style: {
-            size: 'small',
+            size: 'medium',
             color: 'gold',
             shape: 'pill',
             },
@@ -61,8 +84,8 @@
             return actions.payment.create({
                 transactions: [{
                 amount: {
-                    total: '0.01',
-                    currency: 'USD'
+                    total: '{{ price }}',
+                    currency: 'NGN'
                 }
                 }]
             });
@@ -71,7 +94,10 @@
             onAuthorize: function(data, actions) {
             return actions.payment.execute().then(function() {
                 // Show a confirmation message to the buyer
-                window.alert('Thank you for your purchase!');
+                $.ajax({
+                    type: 'POST',
+                    url: '{% url 'order-confirmation' pk %}'
+                })
             });
             }
         }, '#paypal-button');
